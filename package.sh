@@ -67,23 +67,6 @@ mkdir -p package/assets
 cp -r tmp/. package/assets
 rm -rf tmp
 
-# TAS
-
-cp -r deployment/tas package
-cp -r deployment/deploy-tas.sh package/tas/deploy.sh
-cp -r deployment/upgrade-tas.sh package/tas/upgrade.sh
-cp -r deployment/mixpanel.sh package/tas/mixpanel.sh
-chmod u+x package/tas/*.sh
-
-# CF
-
-cp -r deployment/cf package
-cp -r deployment/deploy-cf.sh package/cf/deploy.sh
-cp -r deployment/migrate-cf.sh package/cf/migrate.sh
-cp -r deployment/upgrade-cf.sh package/cf/upgrade.sh
-cp -r deployment/mixpanel.sh package/cf/mixpanel.sh
-chmod u+x package/cf/*.sh
-
 # Heroku
 
 cp -r deployment/heroku package
@@ -92,15 +75,6 @@ cp -r deployment/migrate-heroku.sh package/heroku/migrate.sh
 cp -r deployment/upgrade-heroku.sh package/heroku/upgrade.sh
 cp -r deployment/mixpanel.sh package/heroku/mixpanel.sh
 chmod u+x package/heroku/*.sh
-
-# TKG
-
-cp -r deployment/tkg package
-cp -r deployment/helm/postfacto-*.tgz package/tkg
-cp -r deployment/deploy-tkg.sh package/tkg/deploy.sh
-cp -r deployment/upgrade-tkg.sh package/tkg/upgrade.sh
-cp -r deployment/mixpanel.sh package/tkg/mixpanel.sh
-chmod u+x package/tkg/*.sh
 
 # Smoke tests
 
