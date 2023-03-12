@@ -99,19 +99,9 @@ jobs:
           postfacto-npm-
     - run: npm ci
       working-directory: web
-    - uses: docker/setup-buildx-action@v1
     - name: Get full tag
       id: full_tag
       run: echo ::set-output name=VERSION::${GITHUB_REF##*/}
-    - name: Helm build
-      run: |
-        docker run \
-          -v "$GITHUB_WORKSPACE/deployment/helm/":/helm \
-          -w /helm \
-          --entrypoint /helm/build.sh \
-          alpine/helm:3.2.1 $TAG
-      env:
-        TAG: ${{ steps.full_tag.outputs.VERSION }}
     - name: Package build with dependencies
       run: ./package.sh $TAG
       env:
